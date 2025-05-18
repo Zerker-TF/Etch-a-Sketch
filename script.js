@@ -8,6 +8,7 @@ const buttonContainer = document.getElementById("Buttons");
 const gridContainer = document.getElementById("Grids");
 
 const restartButton = document.createElement("button");
+buttonContainer.appendChild(restartButton);
 buttonContainer.textContent = "Reset game";
 restartButton.id = "restartButton";
 
@@ -31,13 +32,17 @@ function createGrid(row,col){
             //que se divida por la cantidad de filas
             gridDiv.style.flex = `0 0 calc(100% / ${row})`;
             gridDiv.hoverCount = 0;
-            //llamamos una funcion para que eliga cualquier color
-            gridDiv.style.backgroundColor = randomRGB();
-            //Si paso mas de una vez por el mismo cuadro, se oscurece un 10%
-            if(gridDiv.hoverCount < 10) {
-                gridDiv.hoverCount++;
-                gridDiv.style.opacity = gridDiv.hoverCount * 0.1;
-            }
+            //aca detecta por donde pasa el cursor
+            gridDiv.addEventListener("mouseover",() => {
+                //llamamos una funcion para que eliga cualquier color
+                gridDiv.style.backgroundColor = randomRGB();
+                //Si paso mas de una vez por el mismo cuadro, se oscurece un 10%
+                if(gridDiv.hoverCount < 10) {
+                    gridDiv.hoverCount++;
+                    gridDiv.style.opacity = gridDiv.hoverCount * 0.1;
+                }
+
+            })
         }
     }
 }
