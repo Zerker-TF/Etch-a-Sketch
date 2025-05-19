@@ -13,7 +13,7 @@ restartButton.textContent = "Reset game";
 restartButton.id = "restartButton";
 
 
-Grids.style.border = "2px solid black";
+Grids.style.border = "4px solid black";
 
 //funcion para elegir un color RGB aleatorio
 function randomRGB( ){
