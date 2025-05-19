@@ -9,7 +9,7 @@ const gridContainer = document.getElementById("Grids");
 
 const restartButton = document.createElement("button");
 buttonContainer.appendChild(restartButton);
-buttonContainer.textContent = "Reset game";
+restartButton.textContent = "Reset game";
 restartButton.id = "restartButton";
 
 
@@ -53,5 +53,9 @@ function createGrid(row,col){
 createGrid(16,16);
 
 restartButton.addEventListener("click", () => {
-    createGrid(16,16);
+     let squares = prompt("Number of squares per side for new grid?");
+   if (squares >= 100 ) squares = prompt ("Please enter a number less than 100");
+   let squaresNo = Number(squares);
+   gridContainer.innerHTML = "";
+   createGrid(squaresNo, squaresNo);
 })
